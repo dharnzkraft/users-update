@@ -29,6 +29,7 @@ export class UsersViewComponent {
        console.log(this.userEmail)
         if(this.userEmail){
           this.serializeUser()
+          
         }
       } else {
         // User is not authenticated
