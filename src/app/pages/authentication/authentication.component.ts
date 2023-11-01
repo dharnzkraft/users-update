@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-authentication',
@@ -14,7 +15,12 @@ export class AuthenticationComponent {
 
   constructor(
     private auth: AuthService
-  ){}
+  ){
+    
+  }
+
+  
+ 
 
   login(){
     if(this.email == ''){
