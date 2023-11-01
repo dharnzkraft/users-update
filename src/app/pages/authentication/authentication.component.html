@@ -1,0 +1,37 @@
+<div class="m-0 body">
+    <div class="row min-h-100">
+        <div class="col-md-4 bg-dark d-md-block d-none min-vh-100 ">
+            <div class="d-flex text-white w-100 h-100">
+                <h3 class="m-auto" >Here we go!</h3>
+            </div>
+        </div>
+        <div class="col-md-8 d-flex bg-primary-subtle">
+            <div class="m-auto bg-white shadow p-5 w-75 rounded "  >
+                <small *ngIf="nextStep === 1" >Welcome back</small>
+                <small *ngIf="nextStep === 2" >Welcome Aboard</small>
+                <br>
+                <h4 *ngIf="nextStep === 1">Log into your Account</h4>
+                <h4 *ngIf="nextStep === 2">Sign Up Here</h4>
+                <div class="mt-3" *ngIf="nextStep === 2" >
+                    <label for="exampleFormControlInput1" class="form-label">Names</label>
+                    <input type="text" class="form-control" name="names" [(ngModel)]="names" id="exampleFormControlInput1" placeholder="John Doe">
+                </div>
+                <div class="mt-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="email" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+                <div class="mt-3">
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="password" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+                <button class="btn btn-primary mt-3 px-5" *ngIf="nextStep === 1" (click)="login()" >Login</button>
+                <button class="btn btn-primary mt-3 px-5" *ngIf="nextStep === 2" (click)="register()" >Sign Up</button>
+
+                <br><br>
+                <small *ngIf="nextStep === 1"  >New here ? Sign up <a class="text-primary" (click)="nextStep = 2" >here</a></small>
+                <small *ngIf="nextStep === 2"  >An existing user? Log in <a class="text-primary" (click)="nextStep = 1" >here</a></small>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+         
+        </ul>
+        
+          
+          <button class="btn btn-danger" type="submit" (click)="signOut()" >Sign Out</button>
+        
+      </div>
+    </div>
+  </nav>
+<div class="container body mt-5">
+    <div class="table-responsive">
+        <table class="table ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Names</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody  >
+              <tr *ngFor="let user of users; let i = index;" >
+                <th scope="row"> {{i + 1}} </th>
+                <td> {{user.data.name}} </td>
+    
+                <td> {{user.data.email}} </td>
+                <td> {{user.data.role}} </td>
+                <td> 
+                    <button *ngIf="i === nextUserIndex " class="btn btn-success" [disabled]="user.data.role === 'admin'" (click)="approveUser(user.key)" >
+                        <span *ngIf="user.data.role === 'user'" >Approve</span>
+                        <span *ngIf="user.data.role === 'admin'" >Approved</span>
+                    </button>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+   
+</div>
